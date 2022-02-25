@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>文件上传表单</title>
+  </head>
+  <body>
+    <h3>文件上传：</h3>
+    选择一个文件上传: <br />
+    <form action="/file_upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" size="50" />
+    <br />
+    <input type="submit" value="上传文件" />
+    </form>
+  </body>
+  <style>
+  .flex{
+    display: flex;
+    align-items: center;
+  }
+  .triangle{
+    width: 0;
+    height: 0;
+    border-width: 5px 5px 5px 0;
+    border-style: solid;
+    border-color: transparent green transparent black ;
+    position: relative;
+  }
+  .triangle::after{
+    content: '';
+    border-width: 5px 5px 5px 0;
+    border-style: solid;
+    border-color: transparent white transparent black ;
+    position: absolute;
+    top: -5px;
+    left: 2px;
+  }
+  section{
+    height: 20px;
+    width: 500px;
+    border: 1px green solid;
+  }
+</style>
+<script>
+
+
+// $(".flex").mouseleave(function(){console.log(this)})
+
+document.write("<h1>Main title</h1>")
+
+var a;
+function parent(name){
+  this.name = name;
+  this.logName = function(){
+    console.log(this.name);
+  }
+}
+function child(name, age){
+  this.age = age;
+  this.logAge = () => {
+    console.log(this.age)
+  }
+  parent.call(this, name);
+}
+a = new child('aasd', 12);
+
+function parent(){
+  this.name = '123';
+}
+function child(){
+  this.age = 12;
+  parent.call(this);
+}
+var a = new child();
+</script>
+</html>
